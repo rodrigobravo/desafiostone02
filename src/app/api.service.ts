@@ -25,7 +25,7 @@ export class ApiService {
   }
 
   getEmpregado(id: number): Observable<Empregado> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}?id=${id}`;
     return this.http.get<Empregado>(url).pipe(
       tap(_ => console.log(`leu o empregado id=${id}`)),
       catchError(this.handleError<Empregado>(`getEmpregado id=${id}`))

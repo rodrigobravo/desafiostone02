@@ -8,13 +8,13 @@
   </div>
   <mat-card class="example-card">
     <mat-card-header>
-      <mat-card-title><h2>{{empregado.nome}}</h2></mat-card-title>
-      <mat-card-subtitle>{{empregado.cargo}}</mat-card-subtitle>
+      <mat-card-title><h2>{{empregado[0].nome}}</h2></mat-card-title>
+      <mat-card-subtitle>{{empregado[0].cargo}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <dl>
         <dt>Idade:</dt>
-        <dd>{{empregado.idade}}</dd>
+        <dd>{{empregado[0].idade}}</dd>
         </dl>
     </mat-card-content>
     <mat-card-actions>

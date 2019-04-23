@@ -15,6 +15,7 @@ export class EmpregadoDetalheComponent implements OnInit {
 
   ngOnInit() {
     this.getEmpregado(this.route.snapshot.params['id']);
+    console.log(this.route.snapshot.params['id']);
   }
 
   getEmpregado(id) {
@@ -24,6 +25,7 @@ export class EmpregadoDetalheComponent implements OnInit {
         console.log(this.empregado);
         this.isLoadingResults = false;
       });
+
   }
 
   deleteEmpregado(id) {
