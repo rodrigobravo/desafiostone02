@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Empregado } from 'src/model/empregado';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
 

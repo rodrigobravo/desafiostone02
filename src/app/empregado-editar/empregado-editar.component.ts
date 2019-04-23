@@ -2,17 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
+import { Empregado } from 'src/model/empregado';
+
 @Component({
   selector: 'app-empregado-editar',
   templateUrl: './empregado-editar.component.html',
   styleUrls: ['./empregado-editar.component.scss']
 })
 export class EmpregadoEditarComponent implements OnInit {
+  empregado: Empregado = { id: null, nome: '', cargo: '', idade: null };
   id: number = null;
   productForm: FormGroup;
-  nome_empregado: String = '';
-  desc_empregado: String = '';
-  preco_empregado: number = null;
+  nome: String = '';
+  cargo: String = '';
+  idade: number = null;
   isLoadingResults = false;
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService, private formBuilder: FormBuilder) { }
 
@@ -25,7 +28,7 @@ export class EmpregadoEditarComponent implements OnInit {
  });
  }
 
- getEmpregado(id) {
+ getEmpregado(id: number) {
   this.api.getEmpregado(id).subscribe(data => {
     this.id = data.id;
     this.productForm.setValue({

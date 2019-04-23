@@ -1,12 +1,15 @@
 <div>
   <h3>Lista de Empregados</h3>
 </div>
+<nav class="navbar">
+  <input type="text" ng-model="localiza">
+</nav>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 responsive-table th-lg">
 
   <!-- Name Column -->
   <ng-container matColumnDef="nome">
     <th mat-header-cell *matHeaderCellDef> Nome </th>
-    <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.nome|filter:localiza}} </td>
   </ng-container>
 
   <!-- Age Column -->
