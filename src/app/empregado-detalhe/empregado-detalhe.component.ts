@@ -1,34 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
-import { Produto } from 'src/model/produto';
+import { Empregado } from 'src/model/empregado';
 @Component({
-  selector: 'app-produto-detalhe',
-  templateUrl: './produto-detalhe.component.html',
-  styleUrls: ['./produto-detalhe.component.scss']
+  selector: 'app-empregado-detalhe',
+  templateUrl: './empregado-detalhe.component.html',
+  styleUrls: ['./empregado-detalhe.component.scss']
 })
-export class ProdutoDetalheComponent implements OnInit {
-  produto: Produto = { id: null, nome: '', cargo: '', idade: null };
+export class EmpregadoDetalheComponent implements OnInit {
+  empregado: Empregado = { id: null, nome: '', cargo: '', idade: null };
   isLoadingResults = true;
   constructor(private router: Router, private route: ActivatedRoute, private api: ApiService) { }
 
 
   ngOnInit() {
-    this.getProduto(this.route.snapshot.params['id']);
+    this.getEmpregado(this.route.snapshot.params['id']);
   }
 
-  getProduto(id) {
-    this.api.getProduto(id)
+  getEmpregado(id) {
+    this.api.getEmpregado(id)
       .subscribe(data => {
-        this.produto = data;
-        console.log(this.produto);
+        this.empregado = data;
+        console.log(this.empregado);
         this.isLoadingResults = false;
       });
   }
 
-  deleteProduto(id) {
+  deleteEmpregado(id) {
     this.isLoadingResults = true;
-    this.api.deleteProduto(id)
+    this.api.deleteEmpregado(id)
       .subscribe(res => {
           this.isLoadingResults = false;
           this.router.navigate(['/empregados']);

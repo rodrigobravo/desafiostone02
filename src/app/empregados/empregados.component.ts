@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Produto } from 'src/model/produto';
+import { Empregado } from 'src/model/empregado';
 
 @Component({
 
 
-  selector: 'app-produtos',
-  templateUrl: './produtos.component.html',
-  styleUrls: ['./produtos.component.scss']
+  selector: 'app-empregados',
+  templateUrl: './empregados.component.html',
+  styleUrls: ['./empregados.component.scss']
 })
 
-export class ProdutosComponent implements OnInit {
+export class EmpregadosComponent implements OnInit {
   displayedColumns: string[] = [ 'nome', 'cargo', 'idade', 'acao'];
-  dataSource: Produto[];
+  dataSource: Empregado[];
   constructor(private _api: ApiService) { }
 
   ngOnInit() {
-    this._api.getProdutos()
+    this._api.getEmpregados()
     .subscribe(res => {
       this.dataSource = res;
       console.log(this.dataSource);

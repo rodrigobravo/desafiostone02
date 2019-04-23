@@ -1,33 +1,33 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProdutosComponent } from './produtos/produtos.component';
-import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.component';
-import { ProdutoNovoComponent } from './produto-novo/produto-novo.component';
-import { ProdutoEditarComponent } from './produto-editar/produto-editar.component';
+import { EmpregadosComponent } from './empregados/empregados.component';
+import { EmpregadoDetalheComponent } from './empregado-detalhe/empregado-detalhe.component';
+import { EmpregadoNovoComponent } from './empregado-novo/empregado-novo.component';
+import { EmpregadoEditarComponent } from './empregado-editar/empregado-editar.component';
 
 const routes: Routes = [
   {
-    path: 'produtos',
-    component: ProdutosComponent,
-    data: { title: 'Lista de Produtos' }
+    path: 'empregados',
+    component: EmpregadosComponent,
+    data: { title: 'Lista de Empregados' }
   },
   {
-    path: 'produto-detalhe/:id',
-    component: ProdutoDetalheComponent,
-    data: { title: 'Detalhe do Produto' }
+    path: 'empregado-detalhe/:id',
+    component: EmpregadoDetalheComponent,
+    data: { title: 'Detalhe do Empregado' }
   },
   {
-    path: 'produto-novo',
-    component: ProdutoNovoComponent,
-    data: { title: 'Adicionar Produto' }
+    path: 'empregado-novo',
+    component: EmpregadoNovoComponent,
+    data: { title: 'Adicionar Empregado' }
   },
   {
-    path: 'produto-editar/:id',
-    component: ProdutoEditarComponent,
-    data: { title: 'Editar o Produto' }
+    path: 'empregado-editar/:id',
+    component: EmpregadoEditarComponent,
+    data: { title: 'Editar o Empregado' }
   },
   { path: '',
-    redirectTo: '/produtos',
+    redirectTo: '/empregados',
     pathMatch: 'full'
   }
 ];

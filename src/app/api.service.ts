@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Produto } from 'src/model/produto';
+import { Empregado } from 'src/model/empregado';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-// const apiUrl = 'http://localhost:5000/api/produto';
 const apiUrl = 'http://localhost:3000/empregados';
 
 @Injectable({
@@ -17,44 +16,44 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  getProdutos (): Observable<Produto[]> {
-    return this.http.get<Produto[]>(apiUrl)
+  getEmpregados (): Observable<Empregado[]> {
+    return this.http.get<Empregado[]>(apiUrl)
       .pipe(
-        tap(produtos => console.log('leu os produtos')),
-        catchError(this.handleError('getProdutos', []))
+        tap(empregados => console.log('leu os empregados')),
+        catchError(this.handleError('getEmpregados', []))
       );
   }
 
-  getProduto(id: number): Observable<Produto> {
+  getEmpregado(id: number): Observable<Empregado> {
     const url = `${apiUrl}/${id}`;
-    return this.http.get<Produto>(url).pipe(
-      tap(_ => console.log(`leu o produto id=${id}`)),
-      catchError(this.handleError<Produto>(`getProduto id=${id}`))
+    return this.http.get<Empregado>(url).pipe(
+      tap(_ => console.log(`leu o empregado id=${id}`)),
+      catchError(this.handleError<Empregado>(`getEmpregado id=${id}`))
     );
   }
 
-  addProduto (produto): Observable<Produto> {
-    return this.http.post<Produto>(apiUrl, produto, httpOptions).pipe(
+  addEmpregado (empregado): Observable<Empregado> {
+    return this.http.post<Empregado>(apiUrl, empregado, httpOptions).pipe(
       // tslint:disable-next-line:no-shadowed-variable
-      tap((produto: Produto) => console.log(`adicionou o produto com w/ id=${produto.id}`)),
-      catchError(this.handleError<Produto>('addProduto'))
+      tap((empregado: Empregado) => console.log(`adicionou o empregado com w/ id=${empregado.id}`)),
+      catchError(this.handleError<Empregado>('addEmpregado'))
     );
   }
 
-  updateProduto(id, produto): Observable<any> {
+  updateEmpregado(id, empregado): Observable<any> {
     const url = `${apiUrl}/${id}`;
-    return this.http.put(url, produto, httpOptions).pipe(
+    return this.http.put(url, empregado, httpOptions).pipe(
       tap(_ => console.log(`atualiza o produco com id=${id}`)),
-      catchError(this.handleError<any>('updateProduto'))
+      catchError(this.handleError<any>('updateEmpregado'))
     );
   }
 
-  deleteProduto (id): Observable<Produto> {
+  deleteEmpregado (id): Observable<Empregado> {
     const url = `${apiUrl}/delete/${id}`;
 
-    return this.http.delete<Produto>(url, httpOptions).pipe(
-      tap(_ => console.log(`remove o produto com id=${id}`)),
-      catchError(this.handleError<Produto>('deleteProduto'))
+    return this.http.delete<Empregado>(url, httpOptions).pipe(
+      tap(_ => console.log(`remove o empregado com id=${id}`)),
+      catchError(this.handleError<Empregado>('deleteEmpregado'))
     );
   }
 

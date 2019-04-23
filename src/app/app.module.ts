@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProdutosComponent } from './produtos/produtos.component';
-import { ProdutoDetalheComponent } from './produto-detalhe/produto-detalhe.component';
-import { ProdutoNovoComponent } from './produto-novo/produto-novo.component';
-import { ProdutoEditarComponent } from './produto-editar/produto-editar.component';
+import { EmpregadosComponent } from './empregados/empregados.component';
+import { EmpregadoDetalheComponent } from './empregado-detalhe/empregado-detalhe.component';
+import { EmpregadoNovoComponent } from './empregado-novo/empregado-novo.component';
+import { EmpregadoEditarComponent } from './empregado-editar/empregado-editar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -50,10 +50,10 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    ProdutosComponent,
-    ProdutoDetalheComponent,
-    ProdutoNovoComponent,
-    ProdutoEditarComponent,
+    EmpregadosComponent,
+    EmpregadoDetalheComponent,
+    EmpregadoNovoComponent,
+    EmpregadoEditarComponent,
     MenuComponent
   ],
   imports: [

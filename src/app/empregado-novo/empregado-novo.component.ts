@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/api.service';
 @Component({
-  selector: 'app-produto-novo',
-  templateUrl: './produto-novo.component.html',
-  styleUrls: ['./produto-novo.component.scss']
+  selector: 'app-empregado-novo',
+  templateUrl: './empregado-novo.component.html',
+  styleUrls: ['./empregado-novo.component.scss']
 })
-export class ProdutoNovoComponent implements OnInit {
+export class EmpregadoNovoComponent implements OnInit {
 
   productForm: FormGroup;
   isLoadingResults = false;
@@ -21,13 +21,13 @@ export class ProdutoNovoComponent implements OnInit {
    'idade' : [null, Validators.required]
  });
  }
- addProduto(form: NgForm) {
+ addEmpregado(form: NgForm) {
   this.isLoadingResults = true;
-  this.api.addProduto(form)
+  this.api.addEmpregado(form)
     .subscribe(res => {
         const id = res['id'];
         this.isLoadingResults = false;
-        this.router.navigate(['/produto-detalhe', id]);
+        this.router.navigate(['/empregado-detalhe', id]);
       }, (err) => {
         console.log(err);
         this.isLoadingResults = false;
